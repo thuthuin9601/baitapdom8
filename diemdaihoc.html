@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Tính điểm đại học khối D</h1><br>
+    <table>
+        <tr>
+            <td>Môn Toán</td>
+            <td><input type="number" id="toan"><br></td>
+        </tr>
+        <tr>
+            <td>Môn Văn</td>
+            <td><input type="number" id="van"></td>
+        </tr>
+        <tr>
+            <td>Môn Anh</td>
+            <td><input type="number" id="anh"></td>
+        </tr>
+        <tr>
+            <td>Khu Vực</td>
+            <td>
+                <select name="diemcong" id="kv">
+                    <option value="kv1">KV1</option>
+                    <option value="kv2">KV2</option>
+                    <option value="kv2nt">KV2-NT</option>
+                    <option value="kv3">KV3</option>
+                </select>
+            </td>
+        </tr>
+    </table>
+    <button onclick="tinhdiem()">Tính điểm</button>
+    <h3>Số điểm đại học khối D của bạn là:</h3>
+    <div id="ketqua"></div>
+</body>
+</html>
+<script>
+    function tinhdiem(){
+        let math=document.getElementById('toan').value;
+        let lite=document.getElementById('van').value;
+        let eng=document.getElementById('anh').value;
+        let sum=Number(math)+Number(lite)+Number(eng);
+        let khuvuc=document.getElementById('kv').value;
+        switch (khuvuc){
+            case 'kv1':{
+                document.getElementById('ketqua').innerHTML=(Number(sum)+Number(0.75));
+                break;
+            }
+            case 'kv2':{
+                document.getElementById('ketqua').innerHTML=(Number(sum)+Number(0.25));
+                break;
+            }
+            case 'kv2nt':{
+                document.getElementById('ketqua').innerHTML=(Number(sum)+Number(0.5));
+                break;
+            }
+            case 'kv3':{
+                document.getElementById('ketqua').innerHTML=(Number(sum));
+                break;
+            }
+        }
+    }
+</script>
